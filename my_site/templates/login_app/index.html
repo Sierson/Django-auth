@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} home {% endblock %}
+
+{% block body %}
+
+<h1>Hello Django</h1>
+{% if user.is_authenticated %}
+<hr>
+<p>Username: {{ basic_info.username }}</p>
+
+<p>Email: {{ basic_info.email }}</p>
+
+<p>facebook: <a href="{{ more_info.facebook_id }}">{{ more_info.facebook_id }}</a></p>
+<p><img src="/media/{{ more_info.profile_pic }}" style="width:64px; height:64px;"></p>
+{% else %}
+<hr>
+<h6>Welcome to my site. Please log in.</h6>
+{% endif %}
+{% endblock %}

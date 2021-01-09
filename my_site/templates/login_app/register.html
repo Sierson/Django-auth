@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} home {% endblock %}
+
+{% block body %}
+
+<h1>Register</h1>
+<hr>
+{% if registered %}
+<div class="alert alert-success">
+    GG registration successfully done
+</div>
+{% else %}
+<form method="POST" enctype="multipart/form-data">
+    {{ UserForm.as_p }}
+    {{ UserInfoForm.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="submit" value="Register"/>
+</form>
+{% endif %}
+
+{% endblock %}
